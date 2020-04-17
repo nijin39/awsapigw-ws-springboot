@@ -23,8 +23,7 @@ public class ReservationController {
     }
 
     @GetMapping("/api-gw")
-    public String getApiGwInfo(HttpRequest httpRequest){
-        log.info(httpRequest.getURI().toString());
+    public String getApiGwInfo(){
         return "OK";
     }
 

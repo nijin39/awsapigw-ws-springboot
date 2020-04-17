@@ -41,6 +41,9 @@ dependencies {
 
     // Websocket
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // apache io
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
 }
 
 test {
