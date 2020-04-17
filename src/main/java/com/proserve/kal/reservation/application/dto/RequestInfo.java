@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class RequestInfo {
     private String connectionId;
-    private BookingParams body;
+    private BookingParams bookingParams;
 
     @Data
     private class BookingParams {
