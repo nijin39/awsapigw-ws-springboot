@@ -28,7 +28,7 @@ public class ReservationService {
 
     public void makeReservation(RequestInfo requestInfo) throws InterruptedException {
         // Doing Reservation
-        Thread.sleep(35000);
+        Thread.sleep(5000);
 
         AmazonApiGatewayManagementApiClientBuilder builder = AmazonApiGatewayManagementApiClientBuilder.standard();
 
