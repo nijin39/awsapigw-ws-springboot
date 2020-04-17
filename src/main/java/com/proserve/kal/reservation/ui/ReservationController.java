@@ -22,8 +22,9 @@ public class ReservationController {
         return "OK";
     }
 
-    @GetMapping("/api-gw")
-    public String getApiGwInfo(){
+    @PostMapping("/api-gw")
+    public String getApiGwInfo(@RequestBody String params){
+        log.info(params);
         return "OK";
     }
 
