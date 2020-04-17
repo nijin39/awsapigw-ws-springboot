@@ -11,6 +11,7 @@ import com.proserve.kal.reservation.application.dto.ReservationRequest;
 import com.proserve.kal.reservation.application.dto.ReservationResult;
 import com.proserve.kal.reservation.domain.ReservationReceipt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.nio.ByteBuffer;
@@ -26,6 +27,7 @@ public class ReservationService {
         return reservationReceipt.acceptance(reservationRequest);
     }
 
+    @Async
     public void makeReservation(RequestInfo requestInfo) throws InterruptedException {
         // Doing Reservation
         Thread.sleep(35000);
@@ -46,8 +48,19 @@ public class ReservationService {
         PostToConnectionRequest request = new PostToConnectionRequest();
 
         request.withConnectionId(requestInfo.getConnectionId());
-        request.withData(ByteBuffer.wrap("test".getBytes()));
 
+        request.withData(ByteBuffer.wrap("Receive Booking Request".getBytes()));
         agma.postToConnection(request);
+
+        Thread.sleep(10000);
+
+        request.withData(ByteBuffer.wrap("Request to Booking System".getBytes()));
+        agma.postToConnection(request);
+
+        Thread.sleep(10000);
+
+        request.withData(ByteBuffer.wrap("Finished Booking".getBytes()));
+        agma.postToConnection(request);
+
     }
 }
