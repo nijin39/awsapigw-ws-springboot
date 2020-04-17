@@ -48,6 +48,9 @@ dependencies {
     // AWS SDK
     compile 'com.amazonaws:aws-java-sdk-core:1.11.762'
     compile group: 'com.amazonaws', name: 'aws-java-sdk-apigatewaymanagementapi', version: '1.11.762'
+
+    // Json Parser
+    implementation 'org.json:json:20190722'
 }
 
 test {

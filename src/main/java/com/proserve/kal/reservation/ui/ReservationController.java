@@ -1,13 +1,24 @@
 package com.proserve.kal.reservation.ui;
 
+import com.amazonaws.util.StringUtils;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proserve.kal.reservation.application.ReservationService;
 import com.proserve.kal.reservation.application.dto.RequestInfo;
 import com.proserve.kal.reservation.application.dto.ReservationRequest;
 import com.proserve.kal.reservation.application.dto.ReservationResult;
 import lombok.extern.java.Log;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Log
 @RestController

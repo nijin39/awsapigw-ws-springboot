@@ -24,7 +24,7 @@ import org.apache.commons.io.output.TeeOutputStream;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
+//@Component
 public class HttpLoggingFilter implements Filter {
 
     @Override
