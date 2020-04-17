@@ -30,8 +30,6 @@ public class ReservationService {
     @Async
     public void makeReservation(RequestInfo requestInfo) throws InterruptedException {
         // Doing Reservation
-        Thread.sleep(35000);
-
         AmazonApiGatewayManagementApiClientBuilder builder = AmazonApiGatewayManagementApiClientBuilder.standard();
 
         String endpointUri = "https://jkcibhqy65.execute-api.ap-northeast-2.amazonaws.com/dev";
