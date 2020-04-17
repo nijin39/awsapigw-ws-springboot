@@ -26,7 +26,7 @@ public class ReservationController {
     @PostMapping("/api-gw")
     public String getApiGwInfo(@RequestBody RequestInfo requestInfo){
         log.info("CONNECTION ID " + requestInfo.getConnectionId());
-        log.info("REQUEST BODY " + requestInfo.getBody());
+        log.info("REQUEST BODY " + requestInfo.getBookingParams());
         //reservationService.makeReservation(params);
         //log.info("RequestInfo "+requestInfo);
         return "Accepted a request"; //Result 전송 --> 요청접수
