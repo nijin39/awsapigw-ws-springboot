@@ -1,6 +1,7 @@
 package com.proserve.kal.reservation.ui;
 
 import com.proserve.kal.reservation.application.ReservationService;
+import com.proserve.kal.reservation.application.dto.RequestInfo;
 import com.proserve.kal.reservation.application.dto.ReservationRequest;
 import com.proserve.kal.reservation.application.dto.ReservationResult;
 import lombok.extern.java.Log;
@@ -23,9 +24,11 @@ public class ReservationController {
     }
 
     @PostMapping("/api-gw")
-    public String getApiGwInfo(@RequestBody String params){
-        log.info(params);
-        return "OK";
+    public String getApiGwInfo(@RequestBody RequestInfo requestInfo){
+        log.info("CONNECTION ID " + requestInfo.getConnectionId());
+        log.info("REQUEST BODY " + requestInfo.getBody());
+        //reservationService.makeReservation(params);
+        return "Accepted a request"; //Result 전송 --> 요청접수
     }
 
     @GetMapping("/delay-test")

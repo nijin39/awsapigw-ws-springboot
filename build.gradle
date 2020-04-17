@@ -44,6 +44,10 @@ dependencies {
 
     // apache io
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+    // AWS SDK
+    compile 'com.amazonaws:aws-java-sdk-core:1.11.762'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-apigatewaymanagementapi', version: '1.11.762'
 }
 
 test {
