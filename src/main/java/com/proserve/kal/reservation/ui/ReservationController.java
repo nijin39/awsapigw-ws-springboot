@@ -5,6 +5,7 @@ import com.proserve.kal.reservation.application.dto.ReservationRequest;
 import com.proserve.kal.reservation.application.dto.ReservationResult;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
 @Log
@@ -18,6 +19,12 @@ public class ReservationController {
     @GetMapping("/hello")
     public String healthCheck(){
         log.info("HELLO");
+        return "OK";
+    }
+
+    @GetMapping("/api-gw")
+    public String getApiGwInfo(HttpRequest httpRequest){
+        log.info(httpRequest.getURI().toString());
         return "OK";
     }
 
