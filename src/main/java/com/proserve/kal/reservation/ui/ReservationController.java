@@ -30,7 +30,6 @@ public class ReservationController {
 
     @GetMapping("/hello")
     public String healthCheck(){
-        log.info("HELLO");
         return "OK";
     }
 
