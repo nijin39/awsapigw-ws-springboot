@@ -47,17 +47,17 @@ public class ReservationService {
 
         request.withConnectionId(requestInfo.getConnectionId());
 
-        request.withData(ByteBuffer.wrap("Receive Booking Request".getBytes()));
+        request.withData(ByteBuffer.wrap("{\"message\":\"Receive Booking Request\"}".getBytes()));
         agma.postToConnection(request);
 
         Thread.sleep(10000);
 
-        request.withData(ByteBuffer.wrap("Request to Booking System".getBytes()));
+        request.withData(ByteBuffer.wrap("{\"message\":\"Request to Booking System\"}".getBytes()));
         agma.postToConnection(request);
 
         Thread.sleep(10000);
 
-        request.withData(ByteBuffer.wrap("Finished Booking".getBytes()));
+        request.withData(ByteBuffer.wrap("{\"message\":\"Finished Booking\"}".getBytes()));
         agma.postToConnection(request);
 
     }
