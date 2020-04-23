@@ -21,5 +21,14 @@ public class SendResultTOAPIGW implements SendResult {
         request.withConnectionId(requestInfo.getConnectionId());
         request.withData(ByteBuffer.wrap("{\"message\":\"Receive Booking Request\", \"status\":\"finished\"}".getBytes()));
         amazonApiGatewayManagementApi.postToConnection(request);
+
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        request.withData(ByteBuffer.wrap("{\"message\":\"Receive Booking Request 2\", \"status\":\"finished\"}".getBytes()));
+        amazonApiGatewayManagementApi.postToConnection(request);
     }
 }
