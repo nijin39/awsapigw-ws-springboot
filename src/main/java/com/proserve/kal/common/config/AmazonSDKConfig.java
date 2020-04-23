@@ -1,5 +1,6 @@
 package com.proserve.kal.common.config;
 
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.apigatewaymanagementapi.AmazonApiGatewayManagementApi;
@@ -21,7 +22,7 @@ public class AmazonSDKConfig {
 
         AmazonApiGatewayManagementApi agma = builder
                 .withEndpointConfiguration(endpointConfiguration)
-                .withCredentials(new ProfileCredentialsProvider("default"))
+                .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
                 .build();
         return agma;
     }
