@@ -21,16 +21,17 @@ public class SendResultTOAPIGW implements SendResult {
     @Override
     public void sendToAPIGW(RequestInfo requestInfo) {
         try {
+            try {
+
+                Thread.sleep( requestInfo.getBookingParams().getDelay() );
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             PostToConnectionRequest request = new PostToConnectionRequest();
             request.withConnectionId(requestInfo.getConnectionId());
             request.withData(ByteBuffer.wrap("{\"message\":\"Receive Booking Request\", \"status\":\"finished\"}".getBytes()));
             amazonApiGatewayManagementApi.postToConnection(request);
-
-//            try {
-//                Thread.sleep(20000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
 //
 //            request.withData(ByteBuffer.wrap("{\"message\":\"Receive Booking Request 2\", \"status\":\"finished\"}".getBytes()));
 //            amazonApiGatewayManagementApi.postToConnection(request);

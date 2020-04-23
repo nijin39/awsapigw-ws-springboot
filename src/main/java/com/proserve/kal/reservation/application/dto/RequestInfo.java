@@ -8,8 +8,9 @@ public class RequestInfo {
     private BookingParams bookingParams;
 
     @Data
-    private class BookingParams {
+    public class BookingParams {
         private String action;
         private String message;
+        private Integer delay;
     }
 }
