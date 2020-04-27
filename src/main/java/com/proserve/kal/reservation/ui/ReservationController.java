@@ -32,7 +32,7 @@ public class ReservationController {
     public String healthCheck(){
         return "OK";
     }
-
+//1초, 3초, 7초, 15초, 45초
     @GetMapping("/delay/1")
     public String delayedResponse_1(){
         try {
@@ -43,20 +43,40 @@ public class ReservationController {
         return "OK";
     }
 
-    @GetMapping("/delay/2")
-    public String delayedResponse_2(){
+    @GetMapping("/delay/3")
+    public String delayedResponse_3(){
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return "OK";
     }
 
-    @GetMapping("/delay/5")
+    @GetMapping("/delay/7")
     public String delayedResponse_5(){
         try {
-            Thread.sleep(5000);
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "OK";
+    }
+
+    @GetMapping("/delay/15")
+    public String delayedResponse_15(){
+        try {
+            Thread.sleep(15000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "OK";
+    }
+
+    @GetMapping("/delay/45")
+    public String delayedResponse_45(){
+        try {
+            Thread.sleep(45000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
