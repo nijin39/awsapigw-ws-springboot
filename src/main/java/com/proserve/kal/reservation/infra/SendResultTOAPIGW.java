@@ -22,7 +22,6 @@ public class SendResultTOAPIGW implements SendResult {
     public void sendToAPIGW(RequestInfo requestInfo) {
         try {
             try {
-
                 Thread.sleep( requestInfo.getBookingParams().getDelay() );
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -32,9 +31,6 @@ public class SendResultTOAPIGW implements SendResult {
             request.withConnectionId(requestInfo.getConnectionId());
             request.withData(ByteBuffer.wrap("{\"message\":\"Receive Booking Request\", \"status\":\"finished\"}".getBytes()));
             amazonApiGatewayManagementApi.postToConnection(request);
-//
-//            request.withData(ByteBuffer.wrap("{\"message\":\"Receive Booking Request 2\", \"status\":\"finished\"}".getBytes()));
-//            amazonApiGatewayManagementApi.postToConnection(request);
         } catch (GoneException goneException){
             log.error("Connection already was closed");
         }

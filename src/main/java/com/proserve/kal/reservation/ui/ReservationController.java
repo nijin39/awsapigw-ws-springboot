@@ -33,6 +33,36 @@ public class ReservationController {
         return "OK";
     }
 
+    @GetMapping("/delay/1")
+    public String delayedResponse_1(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "OK";
+    }
+
+    @GetMapping("/delay/2")
+    public String delayedResponse_2(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "OK";
+    }
+
+    @GetMapping("/delay/5")
+    public String delayedResponse_5(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "OK";
+    }
+
     @PostMapping("/api-gw")
     public String getApiGwInfo(@RequestBody RequestInfo requestInfo) throws InterruptedException {
         log.info("CONNECTION ID " + requestInfo.getConnectionId());
